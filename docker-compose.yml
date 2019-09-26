@@ -19,12 +19,15 @@ services:
       - "6379:6379"
 
   api:
-    build: ./api/
-    command: sh -c "dockerize -wait tcp://db:5432 && ./manage.py runserver 0.0.0.0:8000"
+    build: ./rust_api/
+    command: sh -c "rustup default stable && cargo watch -x run"
+    tty: true # Colorize output
     volumes:
-      - ./api/:/app/api:rw
+      - ./api/:/app/rust_api:rw
     depends_on:
       - db
+    environment:
+      - RUST_BACKTRACE=1
     ports:
       - "8000:8000"
 

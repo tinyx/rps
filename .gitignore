@@ -6,6 +6,9 @@
 *.log
 *.p
 
+# Rust
+target/
+
 # JS
 node_modules/
 .pnp/

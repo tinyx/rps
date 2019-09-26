@@ -1,0 +1,4 @@
+max_width = 80
+# These two aren't supposed in stable :(
+# merge_imports = true
+# wrap_comments = true

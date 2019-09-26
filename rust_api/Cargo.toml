@@ -1,0 +1,9 @@
+[package]
+name = "rps"
+version = "0.1.0"
+authors = ["Lucas Pickering <lucas@lucaspickering.me>"]
+edition = "2018"
+
+[dependencies]
+diesel = "1.4.2"
+actix-web = "1.0.8"
