@@ -3,6 +3,7 @@ version: "3"
 # Use these instead of the local directory for building the projects
 # to prevent the containers from fighting with external build tools
 volumes:
+  api-build:
   node_modules:
 
 services:
@@ -20,10 +21,11 @@ services:
 
   api:
     build: ./rust_api/
-    command: sh -c "rustup default stable && cargo watch -x run"
+    command: cargo watch -x run
     tty: true # Colorize output
     volumes:
-      - ./api/:/app/rust_api:rw
+      - ./rust_api/:/app/api:rw
+      - api-build:/app/api/target
     depends_on:
       - db
     environment:
