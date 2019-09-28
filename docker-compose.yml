@@ -13,6 +13,8 @@ services:
       - POSTGRES_DB=rps
       - POSTGRES_USER=rps
       - POSTGRES_PASSWORD=rps
+    ports:
+      - "5432:5432"
 
   redis:
     image: redis:5-alpine
@@ -30,6 +32,7 @@ services:
       - db
     environment:
       - RUST_BACKTRACE=1
+      - DATABASE_URL=postgres://rps:rps@db/rps
     ports:
       - "8000:8000"
 
