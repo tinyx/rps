@@ -31,8 +31,9 @@ services:
     depends_on:
       - db
     environment:
-      - RUST_BACKTRACE=1
+      - RUST_BACKTRACE=full
       - DATABASE_URL=postgres://rps:rps@db/rps
+      - RPS_HOST=0.0.0.0:8000
     ports:
       - "8000:8000"
 

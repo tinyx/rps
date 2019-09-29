@@ -1,13 +1,13 @@
 [package]
-name = "rps"
-version = "0.1.0"
 authors = ["Lucas Pickering <lucas@lucaspickering.me>"]
 edition = "2018"
-
+name = "rps"
+version = "0.1.0"
 [dependencies]
-diesel = "1.4.2"
 actix-web = "1.0.8"
+failure = "*"
 
-[dependencies.diesel_cli]
-version = "1.4.0"
-features = ["postgres"]
+[dependencies.diesel]
+default-features = false
+features = ["chrono", "postgres"]
+version = "1.4.2"

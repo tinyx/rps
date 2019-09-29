@@ -1,4 +1,5 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+use std::env;
 
 fn index() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
@@ -14,7 +15,7 @@ fn main() {
             .route("/", web::get().to(index))
             .route("/again", web::get().to(index2))
     })
-    .bind("0.0.0.0:8000")
+    .bind(env::var("RPS_HOST").unwrap())
     .unwrap()
     .run()
     .unwrap();
